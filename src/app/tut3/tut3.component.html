@@ -1,0 +1,40 @@
+<ul>
+   <h3> Fetch details from Service</h3>
+   <li *ngFor="let d of details">{{d.name}} -- {{d.usn}}</li>
+</ul>
+<hr><br>
+
+<ul>
+   <h3>Fetch data using HTTP from Fakestore API</h3>
+   <table>
+      <tr>
+         <th>Firstname</th>
+         <th>Lastname</th>
+         <th>Email</th>
+         <th>City</th>
+         <th>Phone</th>
+      </tr>
+      <tr *ngFor="let user of users">
+         <td>{{user.name.firstname}}</td>
+         <td>{{user.name.lastname}}</td>
+         <td>{{user.email}}</td>
+         <td>{{user.address.city}}</td>
+         <td>{{user.phone}}</td>
+      </tr>
+   </table>
+
+</ul>
+<hr><br>
+
+<h3>Post API Call (Stores in json-server)</h3>
+
+<form #userForm="ngForm" (ngSubmit)="submitForm(userForm.value)">
+   <input type="text" ngModel name="username" placeholder="Enter Username"><br><br>
+   <input type="email" ngModel name="useremail" placeholder="Enter Email"><br><br>
+   <input type="password" ngModel name="password" placeholder="Enter Password"><br><br>
+   <input type="number" ngModel name="mobile" placeholder="Enter Mobile number"><br><br>
+   <button>Add User</button>
+</form>
+<hr><br>
+
+<app-footer></app-footer>

@@ -1,0 +1,10 @@
+<!-- receive data from parent -->
+
+<div class="card">
+    <img [src]="prod.img" alt="" height="150px" width="200px">
+    <h4>{{prod.name}}</h4>
+    <p>{{prod.price | currency:'INR'}}</p>
+</div>
+
+<input type="text" #childmsg>
+<button (click)="fireEvent(childmsg.value)">Send to Parent</button>

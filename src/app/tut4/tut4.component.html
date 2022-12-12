@@ -1,0 +1,47 @@
+<app-login></app-login>
+
+<h2>Custom Pipes</h2>
+<h3>In Rupees : {{40 | uSDtoINR:80}}</h3>
+<hr>
+
+<h2>Template Driven Forms</h2>
+<form #loginForm="ngForm" (submit)="userLogin(loginForm.value)">
+    <input type="text" name="username" pattern="[a-zA-Z]+$" #uname="ngModel" ngModel required><br>
+    <span *ngIf="uname.invalid && uname.touched" [style.color]="'red'">Please Enter a Valid Input</span>
+    <br><br>
+
+    <input type="password" name="password" minlength="3" #pwd="ngModel" ngModel required><br>
+    <span *ngIf="pwd.invalid && pwd.touched" [style.color]="'red'">Please Enter a Valid Input</span>
+    <br><br>
+
+    <button [disabled]="loginForm.invalid">Login</button>
+</form>
+<br><br>
+
+
+
+
+<h2>Reactive Forms</h2>
+<form [formGroup]="loginForm2" (ngSubmit)="userLogin2()">
+    <input type="text" placeholder="Enter Email" formControlName="user"><br>
+    <span *ngIf="user && user.invalid && user.touched" style="color: red;">Please Enter a Valid Email</span>
+    <br><br> 
+    <input type="password" placeholder="Enter Password" formControlName="password2"><br>
+    <span *ngIf="password && password.invalid && password.touched" style="color: red;">Please Enter a Valid Password</span>
+    <br><br>
+    
+    <button [disabled]="loginForm2.invalid">Login</button>
+</form>
+<br><br>
+
+<h3>Dynamic Routing</h3>
+<a routerLink="../user/10">Peter</a><br>
+<a routerLink="../user/20">Sam</a><br>
+<a routerLink="../user/30">Tom</a><br><br>
+
+<h3>Child Routes</h3>
+<button routerLink="childA">Child - A</button><br><br>
+<button routerLink="childB">Child - B</button><br>
+ 
+<router-outlet></router-outlet>
+ 

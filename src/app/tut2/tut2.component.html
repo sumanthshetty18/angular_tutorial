@@ -1,0 +1,76 @@
+<br><br>
+<hr>
+<!-- 2 way Binding -->
+<h2>2 way Binding</h2>
+<input type="text" [(ngModel)]="name" (keyup)="showInConsole()">
+{{name}}
+<br><br>
+
+<hr>
+<!-- Structural Directives -->
+<!-- ngIf -->
+<h2>ngIf</h2>
+<h3 *ngIf="showTitle; then thenBlock; else elseBlock;">Visible when true</h3>
+<ng-template #thenBlock>
+    <h2>Visible Block</h2>
+</ng-template>
+<ng-template #elseBlock>
+    <h2>Hidden Block</h2>
+</ng-template>
+
+<button (click)="displayName()">{{display ? 'Hide':'Show'}}</button>
+<h3 *ngIf="display">Kambula Nana Dumbula</h3>
+<p>----------------------</p>
+
+<h2>ngSwitch</h2>
+<div [ngSwitch]="car">
+    <div *ngSwitchCase="'tata'">You Selected TATA</div>
+    <div *ngSwitchCase="'maruthi'">You Selected MARUTHI</div>
+    <div *ngSwitchCase="'honda'">You Selected HONDA</div>
+    <div *ngSwitchDefault="">Please Set Valid option</div>
+</div>
+<p>----------------------</p>
+
+<h2>ngFor</h2>
+<div *ngFor="let v of vehicles; index as i; even as l"> 
+    <!-- keywords : first,last,odd,even -->
+    <h3>{{i}} - {{v}} - {{l}}</h3>
+    
+</div>
+<hr>
+
+<!-- parent to child and child to parent -->
+<h2>Parent < -- > Child interaction</h2>
+{{message}}
+<app-tut2-nested [prod]="product" *ngFor="let product of p_List" (childEvent)="message=$event"></app-tut2-nested>
+
+<hr>
+
+<!-- pipes -->
+<h2>Pipes</h2>
+<h4>{{person | json}}</h4>
+<h4>{{150 | currency}}</h4>
+<h4>{{150 | currency:'EUR'}}</h4>
+<h4>{{150 | currency:'INR'}}</h4>
+<h4>{{150 | currency:'INR':'code'}}</h4>
+
+<h4>{{ 18.2728|number:'2.2-3'}}</h4>
+<h4>{{ 18.2728|number:'1.4-5'}}</h4>
+<h4>{{ 18.2728|number:'3.4-5'}}</h4>
+
+<h3>Date</h3>
+<h4>{{newDate}}</h4>
+<h4>{{newDate |date}}</h4>
+<p>------------------</p>
+<h4>{{newDate |date:'short'}}</h4>
+<h4>{{newDate |date:'medium'}}</h4>
+<h4>{{newDate |date:'long'}}</h4>
+<p>------------------</p>
+<h4>{{newDate |date:'shortTime'}}</h4>
+<h4>{{newDate |date:'mediumTime'}}</h4>
+<h4>{{newDate |date:'longTime'}}</h4>
+<p>------------------</p>
+<h4>{{newDate |date:'shortDate'}}</h4>
+<h4>{{newDate |date:'mediumDate'}}</h4>
+<h4>{{newDate |date:'longDate'}}</h4>
+<p>------------------</p>

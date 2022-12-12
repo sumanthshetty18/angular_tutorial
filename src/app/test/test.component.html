@@ -1,0 +1,46 @@
+<br><br><br><br>
+<p>__________________________________________________________________________________________</p>
+<h4>Months:
+    <select>
+        <!-- interpolation binding -->
+        <option *ngFor="let m of months">{{m}}</option> 
+    </select>
+</h4>
+<p>__________________________________________________________________________________________</p>
+
+<!-- property binding and conditional  -->
+<button type="button" [disabled]="isUnchanged">{{isUnchanged ? 'Disabled':'Enabled'}}</button>
+<p>__________________________________________________________________________________________</p>
+
+<!-- Class binding -->
+<h2 [class]="successClass">Class Binding</h2>
+
+<!-- regular class will not work when we have class binding -->
+<h2 class="text-success" [class]="dangerClass">Hello</h2> 
+<!-- NOT WORKING AS ABOVE -->
+<h2 class="text-danger" [class]="successClass">Hello - Not Working As above</h2> 
+<h2 [class.text-danger]="hasError">Warning</h2>
+
+<!-- ngClass -multiple styles based on condition-->
+<h2 [ngClass]="msgClasses">Apply diferent style based on condition - ng Class</h2>
+<p>__________________________________________________________________________________________</p>
+
+<!-- Style Binding -->
+<h2 [style]="{'color':'orange'}">Style Binding</h2>
+<h2 [style.color]="'blue'">Style Binding</h2>
+<h2 [style.color]=" hasError ?'red':'green'">Style Binding</h2>
+<h2 [ngStyle]="titleStyles">Ng Style - Apply Multiple Styles</h2>
+
+<p>__________________________________________________________________________________________</p>
+
+<!-- Event Binding -->
+<h2>Event Binding</h2>
+<button (click)="whenClick($event)">Greet</button> {{greeting}}
+<br><br>
+<button (click)="greeting='Hello Everyone'">Greet - 2</button> {{greeting}}
+<p>__________________________________________________________________________________________</p>
+
+<!-- Template refernce variable  -->
+<h2>Template refernce variable</h2>
+<input type="text" #myInput><br>
+<button (click)="logMsg(myInput.value)">Log</button>

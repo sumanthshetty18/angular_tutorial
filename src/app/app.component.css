@@ -1,0 +1,10 @@
+.nav-links{
+    text-decoration: none;
+    color: beige;
+    background-color: rgb(136, 62, 151);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
